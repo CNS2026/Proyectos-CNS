@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+<title>Verificar certificado · CNS</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header><div class="wrap"><div class="brandrow">
+  <img class="hlogo" src="assets/logo.png" alt="CNS Community Network Service">
+  <div class="hdiv"></div>
+  <div><h1 class="serif">Certificados de formación</h1><p>Emisión y verificación</p></div>
+</div></div></header>
+<main>
+  <div class="card">
+    <h2 class="sec">Verifica un certificado</h2>
+    <p class="sub">Pega el código del certificado o escanea su QR para comprobar la formación realizada en CNS.</p>
+    <div id="msg"></div>
+    <form id="vform" class="vrow" autocomplete="off">
+      <input id="code" placeholder="CNS-2026-XXXX-XXXX" aria-label="Código del certificado" spellcheck="false" maxlength="40">
+      <button class="btn" id="vbtn" type="submit">Verificar</button>
+    </form>
+  </div>
+  <div id="result"></div>
+</main>
+<div id="foot"></div>
+<script src="assets/qrcode.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/render.js"></script>
+<script src="assets/verify.js"></script>
+</body>
+</html>

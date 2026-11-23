@@ -1,0 +1,94 @@
+@font-face{font-family:Cinzel;font-weight:600;font-style:normal;font-display:swap;src:url(fonts/cinzel-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Cinzel;font-weight:700;font-style:normal;font-display:swap;src:url(fonts/cinzel-latin-700-normal.woff2) format("woff2")}
+:root{
+  --plum:#371c3a; --plum2:#4a2a4d; --burg:#73313d; --burg-soft:#f6ebed; --black:#090a17;
+  --ink:#12131f; --muted:#6b6270; --line:#e3dadd; --bg:#f7f4f5; --card:#fff;
+  --ok:#0f7b4f; --ok-bg:#e6f6ee; --bad:#b3261e; --bad-bg:#fdecea; --warn:#8a5a00; --warn-bg:#fff4dc;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+header{background:#fff;padding:18px 20px 16px;border-bottom:3px solid var(--burg)}
+.wrap{max-width:860px;margin:0 auto}
+.brandrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hlogo{height:54px;width:auto;display:block}
+.hdiv{width:2px;align-self:stretch;background:var(--burg);opacity:.5;margin:4px 2px}
+.serif{font-family:Cinzel,Georgia,"Times New Roman",serif}
+header h1{font-size:19px;margin:0;letter-spacing:.5px;color:var(--plum)}
+header p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.adminbar{margin-left:auto;display:flex;gap:10px;align-items:center;font-size:13px}
+.adminbar a{color:var(--burg);font-weight:600;text-decoration:none}
+main{max-width:860px;margin:0 auto;padding:22px 16px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:18px}
+h2.sec{font-size:17px;margin:0 0 4px;color:var(--plum)}
+.sub{margin:0 0 16px;color:var(--muted);font-size:14px}
+label{display:block;font-size:13px;font-weight:600;margin:0 0 5px}
+input,select{width:100%;padding:10px 12px;border:1px solid #cdc3c8;border-radius:9px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:2px solid var(--burg);outline-offset:1px;border-color:var(--burg)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.full{grid-column:1/-1}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.btn{appearance:none;border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--burg);color:#fff;text-decoration:none;display:inline-block}
+.btn:hover{filter:brightness(.95)}
+.btn.ghost{background:#fff;color:var(--plum);border:1px solid #cdc3c8;font-weight:600;padding:8px 13px;font-size:13px}
+.btn.small{padding:6px 10px;font-size:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.vrow{display:flex;gap:10px}
+.vrow input{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:16px;letter-spacing:.5px;text-transform:uppercase}
+.note{font-size:14px;padding:10px 12px;border-radius:9px;margin:0 0 14px}
+.note.info{background:var(--burg-soft);color:#5a2430}
+.note.err{background:var(--bad-bg);color:var(--bad)}
+.note.ok{background:var(--ok-bg);color:var(--ok)}
+.note.warn{background:var(--warn-bg);color:var(--warn)}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+.hidden{display:none!important}
+.gap{height:14px}.gap-lg{height:22px}
+.help{margin-top:12px;font-size:13px;color:var(--muted)}
+.help a{color:var(--burg);font-weight:600}
+.inline{display:inline}
+
+/* certificado */
+.cert{border:2px solid var(--plum);border-radius:16px;background:#fff;padding:26px 26px 22px;position:relative;overflow:hidden}
+.cert::before{content:"";position:absolute;inset:7px;border:1px solid #e0cfd3;border-radius:11px;pointer-events:none}
+.cert-head img{height:40px;width:auto;display:block}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;margin:14px 0 4px}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.badge.bad{background:var(--bad-bg);color:var(--bad)}
+.cert-title{font-family:Cinzel,Georgia,serif;text-transform:uppercase;letter-spacing:3px;font-size:13px;color:var(--burg);font-weight:700;margin-top:14px}
+.cert .lead{margin:12px 0 2px;color:var(--muted);font-size:14px}
+.cert h3.name{font-family:Cinzel,Georgia,serif;font-size:27px;margin:0;color:var(--plum);line-height:1.15}
+.cert h4.course{font-family:Cinzel,Georgia,serif;font-size:19px;margin:2px 0 14px;color:var(--ink)}
+dl.facts{display:grid;grid-template-columns:150px 1fr;gap:8px 14px;margin:0;font-size:14px}
+dl.facts dt{color:var(--muted);font-weight:600}
+dl.facts dd{margin:0;font-weight:600}
+@media(max-width:520px){dl.facts{grid-template-columns:1fr}dl.facts dt{margin-top:6px}.cert h3.name{font-size:23px}}
+.cert a{color:#0a66c2;font-weight:600}
+.cert-foot{display:flex;gap:18px;align-items:center;margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);flex-wrap:wrap}
+.codebox{flex:1;min-width:220px}
+.codebox small{display:block;color:var(--muted);font-size:12px;font-weight:600;margin-bottom:3px}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:20px;font-weight:700;color:var(--plum);word-break:break-all}
+canvas.qr{width:150px;height:150px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.cert-brand{margin-top:14px;font-size:12px;color:var(--muted)}
+.cert-brand a{color:var(--burg)}
+.actions{margin-top:14px}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{color:var(--muted);font-weight:700;font-size:12px}
+td.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px}
+.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.bad{background:var(--bad-bg);color:var(--bad)}
+.tablewrap{overflow-x:auto}
+.login{max-width:380px;margin:30px auto}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:6px 16px 34px;line-height:1.8}
+footer a{color:var(--burg);font-weight:600;text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .sep{margin:0 8px;opacity:.5}
+
+@media print{
+  body{background:#fff}
+  header,footer,.actions,.help,.noprint,.adminbar{display:none!important}
+  main{padding:0;max-width:none}
+  .cert{break-inside:avoid;border-width:2px}
+}
+input[type=checkbox]{width:auto;margin-right:6px}
+label.inline{display:inline;font-weight:500}

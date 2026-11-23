@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+<title>Administración · CNS Certificados</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header><div class="wrap"><div class="brandrow">
+  <img class="hlogo" src="../assets/logo.png" alt="CNS Community Network Service">
+  <div class="hdiv"></div>
+  <div><h1 class="serif">Certificados de formación</h1><p>Administración</p></div>
+  <div class="adminbar hidden" id="adminbar"><a href="../">Ver verificación pública</a><button class="btn ghost small" id="logout" type="button">Cerrar sesión</button></div>
+</div></div></header>
+<main>
+  <div id="flash"></div>
+
+  <!-- ACCESO -->
+  <section id="login" class="card login">
+    <h2 class="sec">Acceso de administración</h2>
+    <p class="sub">Solo el equipo de CNS puede emitir certificados. Necesitas el token de GitHub del repositorio y la clave de cifrado.</p>
+    <form id="login-form" autocomplete="off">
+      <label for="tok">Token de GitHub</label>
+      <input id="tok" type="password" required autocomplete="off" placeholder="github_pat_…">
+      <div class="gap"></div>
+      <label for="pass">Clave de cifrado del registro</label>
+      <input id="pass" type="password" required autocomplete="off">
+      <div id="confirm-wrap" class="hidden">
+        <div class="gap"></div>
+        <label for="pass2">Repite la clave (primer uso: se crea el registro)</label>
+        <input id="pass2" type="password" autocomplete="off">
+        <div class="hint">Mínimo 12 caracteres. Si la pierdes no hay forma de recuperar los datos privados (contacto y documento).</div>
+      </div>
+      <div class="gap"></div>
+      <label class="inline"><input id="remember" type="checkbox"> Recordar el token en este navegador</label>
+      <div class="gap"></div>
+      <button class="btn" id="login-btn" type="submit">Entrar</button>
+      <div class="gap"></div>
+      <div id="login-msg"></div>
+    </form>
+  </section>
+
+  <!-- PANEL -->
+  <section id="panel" class="hidden">
+    <div id="cert-view"></div>
+
+    <div class="card noprint">
+      <h2 class="sec">Emitir certificado de formación</h2>
+      <p class="sub">Registra al estudiante que terminó su formación. Se genera un código único y un QR de verificación.</p>
+      <form id="issue-form" autocomplete="off">
+        <div class="grid">
+          <div class="full"><label for="f-nombre">Nombre completo *</label><input id="f-nombre" required maxlength="120" placeholder="Nombres y apellidos"></div>
+          <div><label for="f-tipodoc">Tipo de documento *</label><select id="f-tipodoc" required></select></div>
+          <div><label for="f-numdoc">Número de documento</label><input id="f-numdoc" maxlength="30" placeholder="Opcional"><div class="hint">Solo se muestran los últimos 3 dígitos al verificar.</div></div>
+          <div class="full"><label for="f-contacto">Teléfono o email *</label><input id="f-contacto" required maxlength="120" placeholder="+34 600 000 000 o nombre@correo.com"><div class="hint">Dato privado: se guarda cifrado y no aparece en la verificación pública.</div></div>
+          <div><label for="f-formacion">Formación realizada *</label><select id="f-formacion" required></select></div>
+          <div id="otro-wrap" class="hidden"><label for="f-otro">Nombre del proceso digital *</label><input id="f-otro" maxlength="100" placeholder="Ej.: Automatización con n8n"></div>
+          <div><label for="f-horas">Intensidad (horas) *</label><input id="f-horas" type="number" min="1" max="1000" step="1" required></div>
+          <div><label for="f-profesor">Profesor *</label><select id="f-profesor" required></select></div>
+          <div><label for="f-fecha">Fecha de finalización *</label><input id="f-fecha" type="date" required></div>
+        </div>
+        <div class="gap"></div>
+        <div class="row"><button class="btn" id="issue-btn" type="submit">Generar certificado</button><span id="issue-msg" class="hint"></span></div>
+      </form>
+    </div>
+
+    <div class="card noprint">
+      <div class="row"><h2 class="sec" id="list-title">Certificados emitidos</h2><button class="btn ghost small" id="export" type="button">Exportar CSV</button></div>
+      <p class="sub">Puedes revocar un certificado si se emitió por error; la verificación mostrará que ya no es válido.</p>
+      <input id="filter" type="search" placeholder="Buscar por nombre, formación o código…" aria-label="Buscar">
+      <div class="gap"></div>
+      <div class="tablewrap"><table><thead><tr><th>Estudiante</th><th>Formación</th><th>Contacto</th><th>Código</th><th>Estado</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+    </div>
+  </section>
+</main>
+<div id="foot"></div>
+<script src="../assets/qrcode.js"></script>
+<script src="../assets/config.js"></script>
+<script src="../assets/core.js"></script>
+<script src="../assets/render.js"></script>
+<script src="../assets/admin.js"></script>
+</body>
+</html>
